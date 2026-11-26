@@ -32,10 +32,7 @@ Comprehensions, the iteration protocol, generators, and tools from `itertools`.
 
 ```python
 [expr(item) for item in iterable]
-{
-    key_expr(item): value_expr(item)
-    for item in iterable
-}
+{key_expr(item): value_expr(item) for item in iterable}
 ```
 
 - Prefer no side effects inside comprehension bodies.
