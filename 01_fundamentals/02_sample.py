@@ -33,7 +33,7 @@ else:
 # Sequences: String, List, Tuple, Range
 
 # String
-my_name = 'Brian'
+my_name = "Brian"
 print(my_name)
 my_name1 = "Brian"
 print(my_name1)

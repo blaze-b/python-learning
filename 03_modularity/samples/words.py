@@ -1,48 +1,31 @@
-"""Retrieve and print words from a url.
+"""Retrieve and print words from a URL."""
 
-    Usage:
-        _type_: _description_
-"""
 from urllib.request import urlopen
 
-def fetch_words():
-    """fetch a list of words from the url
+DEFAULT_URL = "http://sixty-north.com/c/t.txt"
 
-    Args:
-        url (_type_): _description_
 
-    Returns:
-        _type_: _description_
-    """
-    story = urlopen('http://sixty-north.com/c/t.txt')
-    story_words = []
-    for line in story:
-        line_words = line.decode('utf8').split()
-        for word in line_words:
-            story_words.append(word)
-    story.close()
+def fetch_words(url=DEFAULT_URL):
+    """Fetch a list of words from the URL."""
+    with urlopen(url) as story:
+        story_words = []
+        for line in story:
+            line_words = line.decode("utf-8").split()
+            story_words.extend(line_words)
     return story_words
 
 
 def print_words(words):
-    """print the items
-
-    Args:
-        items (_type_): _description_
-    """
+    """Print each word on its own line."""
     for word in words:
         print(word)
 
 
-def main():
-    """main call
-
-    Args:
-        url (_type_): _description_
-    """
-    words = fetch_words()
+def main(url=DEFAULT_URL):
+    """Fetch words from *url* and print them."""
+    words = fetch_words(url)
     print_words(words)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

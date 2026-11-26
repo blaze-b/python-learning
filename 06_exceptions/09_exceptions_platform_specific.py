@@ -5,8 +5,8 @@ try:
         return msvcrt.getch()
 except ImportError:
     import sys
-    import tty
     import termios
+    import tty
 
     def get_key():
         fd = sys.stdin.fileno()

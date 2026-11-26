@@ -7,7 +7,7 @@ for city in cities:
 
 # From dist
 
-colors = {'crimson' : 78787878, 'coral' : 898989898, 'teal' : 898889}
+colors = {"crimson": 78787878, "coral": 898989898, "teal": 898889}
 
 for color in colors:
     print(color, colors[color])

@@ -5,10 +5,7 @@ def _int32_to_bytes(i):
     """Convert an integer to four bytes in little-endian format."""
     # &:  Bitwise-and
     # >>: Right-shift
-    return bytes((i & 0xff,
-                  i >> 8 & 0xff,
-                  i >> 16 & 0xff,
-                  i >> 24 & 0xff))
+    return bytes((i & 0xFF, i >> 8 & 0xFF, i >> 16 & 0xFF, i >> 24 & 0xFF))
 
 
 def write_grayscale(filename, pixels):
@@ -28,35 +25,35 @@ def write_grayscale(filename, pixels):
     height = len(pixels)
     width = len(pixels[0])
 
-    with open(filename, 'wb') as bmp:
+    with open(filename, "wb") as bmp:
         # BMP Header
-        bmp.write(b'BM')
+        bmp.write(b"BM")
 
-        size_bookmark = bmp.tell()     # The next four bytes hold the filesize as a 32-bit
+        size_bookmark = bmp.tell()  # The next four bytes hold the filesize as a 32-bit
         # little-endian integer. Zero placeholder for now.
-        bmp.write(b'\x00\x00\x00\x00')
+        bmp.write(b"\x00\x00\x00\x00")
 
-        bmp.write(b'\x00\x00')  # Unused 16-bit integer - should be zero
-        bmp.write(b'\x00\x00')  # Unused 16-bit integer - should be zero
+        bmp.write(b"\x00\x00")  # Unused 16-bit integer - should be zero
+        bmp.write(b"\x00\x00")  # Unused 16-bit integer - should be zero
 
         # The next four bytes hold the integer offset to the
         pixel_offset_bookmark = bmp.tell()
         # pixel data. Zero placeholder for now.
-        bmp.write(b'\x00\x00\x00\x00')
+        bmp.write(b"\x00\x00\x00\x00")
 
         # Image Header
         # Image header size in bytes - 40 decimal
-        bmp.write(b'\x28\x00\x00\x00')
+        bmp.write(b"\x28\x00\x00\x00")
         bmp.write(_int32_to_bytes(width))  # Image width in pixels
         bmp.write(_int32_to_bytes(height))  # Image height in pixels
-        bmp.write(b'\x01\x00')         # Number of image planes
-        bmp.write(b'\x08\x00')         # Bits per pixel 8 for grayscale
-        bmp.write(b'\x00\x00\x00\x00')  # No compression
-        bmp.write(b'\x00\x00\x00\x00')  # Zero for uncompressed images
-        bmp.write(b'\x00\x00\x00\x00')  # Unused pixels per meter
-        bmp.write(b'\x00\x00\x00\x00')  # Unused pixels per meter
-        bmp.write(b'\x00\x00\x00\x00')  # Use whole color table
-        bmp.write(b'\x00\x00\x00\x00')  # All colors are important
+        bmp.write(b"\x01\x00")  # Number of image planes
+        bmp.write(b"\x08\x00")  # Bits per pixel 8 for grayscale
+        bmp.write(b"\x00\x00\x00\x00")  # No compression
+        bmp.write(b"\x00\x00\x00\x00")  # Zero for uncompressed images
+        bmp.write(b"\x00\x00\x00\x00")  # Unused pixels per meter
+        bmp.write(b"\x00\x00\x00\x00")  # Unused pixels per meter
+        bmp.write(b"\x00\x00\x00\x00")  # Use whole color table
+        bmp.write(b"\x00\x00\x00\x00")  # All colors are important
 
         # Color palette - a linear grayscale
         for c in range(256):
@@ -68,7 +65,7 @@ def write_grayscale(filename, pixels):
             row_data = bytes(row)
             bmp.write(row_data)
             # Pad row to multiple of four bytes
-            padding = b'\x00' * ((4 - (len(row) % 4)) % 4)
+            padding = b"\x00" * ((4 - (len(row) % 4)) % 4)
             bmp.write(padding)
 
         # End of file
@@ -98,17 +95,16 @@ def dimensions(filename):
         OSError: If there was a problem reading the file.
     """
 
-    with open(filename, 'rb') as f:
+    with open(filename, "rb") as f:
         magic = f.read(2)
-        if magic != b'BM':
+        if magic != b"BM":
             raise ValueError("{} is not a BMP file".format(filename))
 
         f.seek(18)
         width_bytes = f.read(4)
         height_bytes = f.read(4)
 
-        return (_bytes_to_int32(width_bytes),
-                _bytes_to_int32(height_bytes))
+        return (_bytes_to_int32(width_bytes), _bytes_to_int32(height_bytes))
 
 
 def _bytes_to_int32(b):

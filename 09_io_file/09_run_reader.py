@@ -1,15 +1,17 @@
 """Read and print an integer series."""
-import sys
+
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
 
 
 def read_series(filename):
-    f = open(filename, mode='rt', encoding='utf-8')
-    series = []
-    for line in f:
-        a = int(line.strip())
-        series.append(a)
-    f.close()
-    return series
+    with open(filename, mode="rt", encoding="utf-8") as f:
+        series = []
+        for line in f:
+            a = int(line.strip())
+            series.append(a)
+        return series
 
 
 def main(filename):
@@ -17,5 +19,8 @@ def main(filename):
     print(series)
 
 
-if __name__ == '__main__':
-    main("09_io_file/recman.dat")
+if __name__ == "__main__":
+    path = HERE / "recman.dat"
+    if not path.exists():
+        path.write_text("0\n1\n3\n6\n2\n7\n13\n20\n12\n21\n", encoding="utf-8")
+    main(path)

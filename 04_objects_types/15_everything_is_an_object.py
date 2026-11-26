@@ -1,6 +1,5 @@
 import samples.word
 
-
 class_obj = samples.word
 
 typo = type(class_obj)
@@ -22,6 +21,3 @@ print(class_obj.fetch_words.__doc__)
 
 
 print(class_obj.fetch_words.__name__)
-
-
-

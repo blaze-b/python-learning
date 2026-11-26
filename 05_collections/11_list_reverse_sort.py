@@ -15,7 +15,7 @@ c.sort(reverse=True)
 print(c)
 
 
-b = [27, 'hello', 25]
+b = [27, "hello", 25]
 
 b.reverse()
 

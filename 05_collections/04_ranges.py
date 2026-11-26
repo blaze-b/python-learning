@@ -1,4 +1,4 @@
-r=range(5)
+r = range(5)
 
 print(r)
 

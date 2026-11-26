@@ -1,5 +1,4 @@
 class Aircraft:
-
     def __init__(self, registration):
         self._registration = registration
 
@@ -12,7 +11,6 @@ class Aircraft:
 
 
 class AirbusA319(Aircraft):
-
     def model(self):
         return "Airbus A319"
 
@@ -21,7 +19,6 @@ class AirbusA319(Aircraft):
 
 
 class Boeing777(Aircraft):
-
     def model(self):
         return "Boeing 777"
 

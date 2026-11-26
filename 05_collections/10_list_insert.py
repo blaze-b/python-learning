@@ -1,7 +1,7 @@
-a = 'I accidentally the whole unverse'.split()
+a = "I accidentally the whole unverse".split()
 print(a)
 
-a = ' '.join(a)
+a = " ".join(a)
 
 print(a)
 

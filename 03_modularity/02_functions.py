@@ -1,8 +1,8 @@
 def square(x):
-    return x*x
+    return x * x
 
-d = square(5);
 
+d = square(5)
 print("square value::", d)
 
 
@@ -19,6 +19,7 @@ def even_or_odd(n):
         return
     print("odd")
 
+
 w = even_or_odd(31)
 
 print(w)
@@ -29,8 +30,10 @@ print(w)
 
 print(w is None)
 
+
 def nth_root(radicand, n):
-    return radicand ** (1/n)
+    return radicand ** (1 / n)
+
 
 w = nth_root(16, 2)
 

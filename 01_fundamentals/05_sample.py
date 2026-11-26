@@ -15,9 +15,9 @@ print(x // y)
 # Modulus
 print(x % y)
 # Power
-print(x ** y)
+print(x**y)
 a = 2
-print(2 ** 10)
+print(2**10)
 
 # Assignment Operators
 x = 10

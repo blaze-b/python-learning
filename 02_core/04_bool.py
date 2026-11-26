@@ -3,7 +3,7 @@ print(True)
 print(bool(0))
 print(bool(42))
 print(bool(-1))
-print(bool(.207))
+print(bool(0.207))
 print(bool(-1.117))
 # Empty Check
 print(bool([]))

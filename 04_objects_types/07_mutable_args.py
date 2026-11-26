@@ -4,6 +4,7 @@ def replace_contents(g):
     g[2] = 45
     print("g = ", g)
 
+
 f = [14, 23, 37]
 
 replace_contents(f)

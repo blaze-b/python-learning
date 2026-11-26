@@ -1,4 +1,7 @@
 from itertools import count, islice
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
 
 
 def sequence():
@@ -14,17 +17,17 @@ def sequence():
 
 
 def read_series(filename) -> list:
-    with open(filename, mode='rt', encoding='utf-8') as f:
+    with open(filename, mode="rt", encoding="utf-8") as f:
         return [int(line.strip()) for line in f]
 
 
 def write_sequence(filename, num) -> None:
     """Write Recaman's sequence to a text file."""
-    with open(filename, mode='wt', encoding='utf-8') as f:
-        f.writelines(f"{r}\n"
-                     for r in islice(sequence(), num + 1))
+    with open(filename, mode="wt", encoding="utf-8") as f:
+        f.writelines(f"{r}\n" for r in islice(sequence(), num + 1))
 
 
-print(write_sequence("09_io_file/recman_1.dat", 100))
-
-print(read_series("09_io_file/recman_1.dat"))
+if __name__ == "__main__":
+    out = HERE / "recman_1.dat"
+    write_sequence(out, 100)
+    print(read_series(out))

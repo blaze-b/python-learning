@@ -1,13 +1,17 @@
+import reprlib
+from pathlib import Path
 
 import samples.bmp as bmp
-import reprlib
 import samples.fractal as fractal
+
+HERE = Path(__file__).resolve().parent
 
 pixels = fractal.mandelbrot(448, 256)
 
 print(reprlib.repr(pixels))
 
-bmp.write_grayscale("09_io_file/mandel.bmp", pixels)
+out = HERE / "mandel.bmp"
+bmp.write_grayscale(out, pixels)
 
-dim = bmp.dimensions("09_io_file/mandel.bmp")
+dim = bmp.dimensions(out)
 print(dim)
