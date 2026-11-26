@@ -1,12 +1,9 @@
-urls = {
-    'Google': 'http://google.com',
-    'Plurasight': 'http://pluralsight.com'
-}
+urls = {"Google": "http://google.com", "Plurasight": "http://pluralsight.com"}
 
-print(urls['Plurasight'])
+print(urls["Plurasight"])
 
 
-names_and_ages = [('Alices', 32), ('Bob', 48), ('Charlie', 28), ('Daniel', 33)]
+names_and_ages = [("Alices", 32), ("Bob", 48), ("Charlie", 28), ("Daniel", 33)]
 
 print(type(names_and_ages))
 
@@ -33,26 +30,28 @@ f.update(g)
 
 print(f)
 
-print(type(g['wheat']))
+print(type(g["wheat"]))
 
 
-stocks = {'GOOG': 891, 'APL': 194, 'IBM': 194}
+stocks = {"GOOG": 891, "APL": 194, "IBM": 194}
 
 print(stocks)
 
-stocks.update({'GOOG': 894, 'YHOO': 25})
+stocks.update({"GOOG": 894, "YHOO": 25})
 
 print(stocks)
 
 # Iterating
 
-colors = dict(aquamarice='#8989898',
-              burlywood='#898989',
-              chartreuse='#ioioiio',
-              cornflower='#lklklkl',
-              firebrick='#jjkjkjk',
-              honeydew='#lklklkl',
-              maroon='#B2222')
+colors = dict(
+    aquamarice="#8989898",
+    burlywood="#898989",
+    chartreuse="#ioioiio",
+    cornflower="#lklklkl",
+    firebrick="#jjkjkjk",
+    honeydew="#lklklkl",
+    maroon="#B2222",
+)
 
 for key in colors:
     print(f"{key} => {colors[key]}")
@@ -67,42 +66,37 @@ for key, value in colors.items():
     print(key, value)
 
 
-symbols = dict(usd='$', gbp='Pound', nzd='$')
+symbols = dict(usd="$", gbp="Pound", nzd="$")
 
 print(symbols)
 
 # Contains
-print('nzd' in symbols)
+print("nzd" in symbols)
 
 # Not contains
 
-print('mzd' not in symbols)
+print("mzd" not in symbols)
 
 
-z = {'H': 1, 'TC': 2, 'Xe': 3, 'Fy': 137}
+z = {"H": 1, "TC": 2, "Xe": 3, "Fy": 137}
 
-del z['Fy']
+del z["Fy"]
 
 print(z)
 
 m = dict(
-    H=[1, 2, 3],
-    He=[3, 4],
-    Li=[7, 9, 10],
-    Be=[7, 9],
-    B=[10, 11],
-    C=[11, 12, 13, 14]
+    H=[1, 2, 3], He=[3, 4], Li=[7, 9, 10], Be=[7, 9], B=[10, 11], C=[11, 12, 13, 14]
 )
-m['H'] += [4, 5, 25]
+m["H"] += [4, 5, 25]
 
-print(m['H'])
+print(m["H"])
 
 # Add a new item
 
-m['N'] = [8, 4, 4]
+m["N"] = [8, 4, 4]
 
 print(m)
 
-m['N'].append(22)
+m["N"].append(22)
 
 print(m)

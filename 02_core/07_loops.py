@@ -1,3 +1,5 @@
+import sys
+
 c = 5
 
 while c != 0:
@@ -13,10 +15,13 @@ print(c)
 c *= 10
 print(c)
 
-# Break statement
-
+# Break statement — interactive when stdin is a TTY; otherwise use a demo value.
 while True:
-    print("Input the number....")
-    response = input()
+    if sys.stdin.isatty():
+        print("Input the number....")
+        response = input()
+    else:
+        response = "14"
+        print(f"Input the number.... (non-interactive demo: {response})")
     if int(response) % 7 == 0:
         break

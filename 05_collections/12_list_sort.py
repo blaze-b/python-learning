@@ -1,4 +1,4 @@
-a = 'Hi I am working, could you please handover the bottle for learning'.split()
+a = "Hi I am working, could you please handover the bottle for learning".split()
 
 print(a)
 
@@ -6,7 +6,7 @@ a.sort(key=len)
 
 print(a)
 
-' '.join(a)
+" ".join(a)
 
 print(a)
 

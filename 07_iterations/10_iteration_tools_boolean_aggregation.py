@@ -23,6 +23,6 @@ b = any(is_prime(x) for x in range(1328, 1361))
 
 print(b)
 
-b = all(name == name.title() for name in ['London', 'Paris'])
+b = all(name == name.title() for name in ["London", "Paris"])
 
 print(b)

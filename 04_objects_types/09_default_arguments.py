@@ -1,9 +1,10 @@
-def banner(message, border='-'):
-    print('message = ', message, ", border = ", border)
+def banner(message, border="-"):
+    print("message = ", message, ", border = ", border)
     line = border * len(message)
     print(line)
     print(message)
     print(line)
+
 
 banner("Test")
 

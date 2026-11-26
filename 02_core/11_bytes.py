@@ -1,4 +1,4 @@
-b_data = b'data'
+b_data = b"data"
 
 print(b_data)
 
@@ -6,7 +6,7 @@ b_data = b"data"
 
 print(b_data)
 
-d = b' some bytes'
+d = b" some bytes"
 
 print(d)
 print(d[0])

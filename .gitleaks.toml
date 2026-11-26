@@ -1,0 +1,16 @@
+# Scan the working tree for secrets. Local developer credentials and
+# generated lesson outputs are excluded.
+title = "python-essential-training"
+
+[extend]
+useDefault = true
+
+[allowlist]
+paths = [
+  '''(^|/)\.venv/''',
+  '''(^|/)venv/''',
+  '''(^|/)\.pytest_cache/''',
+  '''(^|/)\.ruff_cache/''',
+  '''(^|/)__pycache__/''',
+  '''(^|/)09_io_file/.*\.(dat|txt|bmp)$''',
+]

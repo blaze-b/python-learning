@@ -1,5 +1,4 @@
 class Aircraft:
-
     def __init__(self, registration, model, num_rows, num_seats_per_row):
         self._registration = registration
         self._model = model
@@ -13,19 +12,18 @@ class Aircraft:
         return self._model
 
     def seating_plan(self):
-        return (range(1, self._num_rows + 1), "ABCDEFGHJK"[:self._num_seats_per_row])
+        return (range(1, self._num_rows + 1), "ABCDEFGHJK"[: self._num_seats_per_row])
 
 
 class Flight:
-
     def __init__(self, number):
         # _ is mandatory
         if not number[:2].isalpha():
-            raise ValueError(f'No airline code in {number}')
+            raise ValueError(f"No airline code in {number}")
         if not number[:2].isupper():
-            raise ValueError(f'Invalid airline code {number}')
-        if not number[2:].isdigit() and int(number[2:] <= 999):
-            raise ValueError(f'Invalid route number {number}')
+            raise ValueError(f"Invalid airline code {number}")
+        if not number[2:].isdigit() or int(number[2:]) > 9999:
+            raise ValueError(f"Invalid route number {number}")
         self._number = number
 
     def number(self):

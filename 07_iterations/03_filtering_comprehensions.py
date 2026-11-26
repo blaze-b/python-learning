@@ -15,6 +15,6 @@ numbers = [x for x in range(101) if is_prime(x)]
 
 print(numbers)
 
-prime_square_divisors = {x*x: (1, x, x*x) for x in range(20) if is_prime(x)}
+prime_square_divisors = {x * x: (1, x, x * x) for x in range(20) if is_prime(x)}
 
 pp(prime_square_divisors)

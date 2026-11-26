@@ -1,0 +1,55 @@
+[project]
+name = "python-essential-training"
+version = "0.1.0"
+description = "Personal Python essentials learning scripts (Python 3.12+)"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.8",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.8",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 88
+extend-exclude = []
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "W"]
+ignore = [
+    # Pedagogical demos: star-imports, mid-file imports, short names, .format()
+    "E402",
+    "E501",
+    "E741",
+    "F403",
+    "F405",
+    "UP015",  # keep explicit open(..., mode=...) in I/O lessons
+    "UP030",
+    "UP032",
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Intentional unused local to show shadowing before `global`
+"04_objects_types/14_scoping_global_rebinding.py" = ["F841"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]

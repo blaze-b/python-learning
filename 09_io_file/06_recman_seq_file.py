@@ -1,7 +1,9 @@
-# Recman sequence
+# Recaman sequence
 
-import sys
 from itertools import count, islice
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
 
 
 def sequence():
@@ -18,13 +20,10 @@ def sequence():
 
 def write_sequence(filename, num):
     """Write Recaman's sequence to a text file."""
-    f = open(filename, mode='wt', encoding='utf-8')
-    f.writelines(f"{r}\n"
-                 for r in islice(sequence(), num + 1))
-    f.close()
+    with open(filename, mode="wt", encoding="utf-8") as f:
+        f.writelines(f"{r}\n" for r in islice(sequence(), num + 1))
 
 
-# CMD: python 06_finally_close.py recman.dat 1000
-if __name__ == '__main__':
-    write_sequence(filename="09_io_file/recman.dat",
-                   num=int("1000"))
+# CMD: python 06_recman_seq_file.py
+if __name__ == "__main__":
+    write_sequence(filename=HERE / "recman.dat", num=1000)

@@ -1,6 +1,5 @@
 """Demonstrate raiding a refrigerator."""
 
-
 from contextlib import closing
 
 
@@ -12,7 +11,7 @@ class RefrigeratorRaider:
 
     def take(self, food):
         print(f"Finding {food}...")
-        if food == 'deep fried pizza':
+        if food == "deep fried pizza":
             raise RuntimeError("Health warning!")
         print(f"Taking {food}")
 
@@ -23,8 +22,10 @@ class RefrigeratorRaider:
 def raid(food):
     r = RefrigeratorRaider()
     r.open()
-    r.take(food)
-    r.close()
+    try:
+        r.take(food)
+    finally:
+        r.close()
 
 
 def raid_with_closing(food):
@@ -33,14 +34,19 @@ def raid_with_closing(food):
         r.take(food)
 
 
-def test_function_1():
-    raid('bacon')
-    raid('deep fried pizza')
+def demo():
+    raid("bacon")
+    try:
+        raid("deep fried pizza")
+    except RuntimeError as e:
+        print(f"Caught: {e}")
+
+    raid_with_closing("bacon")
+    try:
+        raid_with_closing("deep fried pizza")
+    except RuntimeError as e:
+        print(f"Caught with closing(): {e}")
 
 
-def test_function_2():
-    raid_with_closing('bacon')
-    raid_with_closing('deep fried pizza')
-
-
-test_function_2()
+if __name__ == "__main__":
+    demo()

@@ -12,12 +12,13 @@ def sqrt(x):
         raise ValueError()
     return guess
 
+
 # Do early check
 
 
 def sqrt_1(x):
     if x < 0:
-        raise ValueError("Cannot compute square of " f"negative number {x}")
+        raise ValueError(f"Cannot compute square of negative number {x}")
     guess = x
     i = 0
     while guess * guess != x and i < 20:
@@ -35,5 +36,5 @@ def main():
         print(e, file=sys.stderr)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

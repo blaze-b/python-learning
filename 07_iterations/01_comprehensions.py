@@ -1,6 +1,6 @@
 from math import factorial
 
-words = 'Why sometimes I have believed as many as six impossible things before breakfast'.split()
+words = "Why sometimes I have believed as many as six impossible things before breakfast".split()
 
 print(words)
 

@@ -1,8 +1,9 @@
-def add_spam(menu = None):
+def add_spam(menu=None):
     if menu is None:
         menu = []
-    menu.append('spam')
+    menu.append("spam")
     return menu
+
 
 print(add_spam())
 

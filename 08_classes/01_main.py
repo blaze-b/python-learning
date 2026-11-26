@@ -6,11 +6,11 @@ print(type(flight))
 
 print(flight.number())
 
-# Not recomended
+# Not recommended — accessing the "private" attribute directly
 print(flight._number)
 
-flight = Flight("060")
-
-flight = Flight("sm060")
-
-flight = Flight("snanbe")
+for invalid in ("060", "sm060", "snanbe"):
+    try:
+        Flight(invalid)
+    except ValueError as e:
+        print(f"Rejected {invalid!r}: {e}")

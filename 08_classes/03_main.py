@@ -1,8 +1,10 @@
 from pprint import pprint as pp
-from samples.air_travel_1 import Flight, Aircraft
 
-flight = Flight("BA758", Aircraft("G-EUPT", "Airbus A319",
-                num_rows=22, num_seats_per_row=6))
+from samples.air_travel_1 import Aircraft, Flight
+
+flight = Flight(
+    "BA758", Aircraft("G-EUPT", "Airbus A319", num_rows=22, num_seats_per_row=6)
+)
 
 print(flight.aircraft_model(), flight.aircraft_seating_plan())
 

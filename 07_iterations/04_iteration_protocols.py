@@ -1,4 +1,4 @@
-iterable = ['Spring', 'Summer', 'Autumn', 'Winter']
+iterable = ["Spring", "Summer", "Autumn", "Winter"]
 
 iterator = iter(iterable)
 
@@ -36,4 +36,4 @@ def first(iterable):
         return ValueError("iterator is empty")
 
 
-print(first(['Spring', 'Summer', 'Autumn', 'Winter']))
+print(first(["Spring", "Summer", "Autumn", "Winter"]))

@@ -1,16 +1,17 @@
 import sys
+from pathlib import Path
 
-f = open("09_io_file/wasteland.txt", mode='wt',
-         encoding=sys.getdefaultencoding())
+HERE = Path(__file__).resolve().parent
+path = HERE / "wasteland.txt"
+
+f = open(path, mode="wt", encoding=sys.getdefaultencoding())
 
 print(f)
 
-# help(f)
+f.write("What are the roots that clutch, ")
 
-f.write('What are the roots that clutch, ')
+f.write("What branches grow\n")
 
-f.write('What branches grow\n')
-
-f.write('Out of this stony rubbish? ')
+f.write("Out of this stony rubbish? ")
 
 f.close()

@@ -14,9 +14,9 @@ def main():
         print(sqrt(-1))
         print("This is never printed")
     except ZeroDivisionError:
-        print('Cannot compute square root of a negative number.')
-    print('Execution computed successfully')
+        print("Cannot compute square root of a negative number.")
+    print("Execution computed successfully")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
